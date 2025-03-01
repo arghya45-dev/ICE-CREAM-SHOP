@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+
+{% block title %} Services {% endblock %}
+
+{% block body %}
+
+<header class="text-center py-5">
+    <h1 class="text-warning fw-bold">Our Services</h1>
+    <p class="lead">Premium Ice Cream Experiences Just for You!</p>
+</header>
+
+<!-- Service Cards -->
+<div class="container my-5">
+    <div class="row g-4">
+
+        <!-- Catering Service -->
+        <div class="col-md-4">
+            <div class="card bg-dark text-light border-warning shadow">
+                <img src="/static/catering.avif" class="card-img-top" alt="Catering">
+                <div class="card-body">
+                    <h5 class="card-title text-warning">🍽️ Ice Cream Catering</h5>
+                    <p>Make your events special with our catering services.</p>
+                    <a href="/contact" class="btn btn-warning">Book Now</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- In-Store Experience -->
+        <div class="col-md-4">
+            <div class="card bg-dark text-light border-warning shadow">
+                <img src="/static/outlet.jpg" class="card-img-top" alt="Store">
+                <div class="card-body">
+                    <h5 class="card-title text-warning">🏪 Visit Our Outlets</h5>
+                    <p>Enjoy fresh ice cream in our vibrant stores.</p>
+                    <a href="/about" class="btn btn-warning">Find a Store</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Online Order -->
+        <div class="col-md-4">
+            <div class="card bg-dark text-light border-warning shadow">
+                <img src="/static/online.jpg" class="card-img-top" alt="Online Orders">
+                <div class="card-body">
+                    <h5 class="card-title text-warning">📦 Order Online</h5>
+                    <p>Get your favorite ice cream delivered to your doorstep.</p>
+                    <a href="/" class="btn btn-warning">Order Now</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Interactive Flavor Selector -->
+<div class="text-center my-5">
+    <h2 class="text-warning">Choose Your Favorite Flavor 🍨</h2>
+    <select id="flavorSelect" class="form-select bg-dark text-light border-warning w-50 mx-auto">
+        <option value="/static/vanilla.jpg">Vanilla</option>
+        <option value="/static/chocolate.jpg">Chocolate</option>
+        <option value="/static/strawberry.jpg">Strawberry</option>
+    </select>
+        <!-- Image Card with Button Inside -->
+        <div class="position-relative d-inline-block mt-4 rounded shadow-lg overflow-hidden" style="max-width: 300px;">
+            <img id="flavorImage" src="/static/vanilla.jpg" class="img-fluid rounded" style="width: 100%; height: auto;">
+    
+            <!-- Overlay Container for Button & Price -->
+            <div class="position-absolute bottom-0 w-100 bg-dark bg-opacity-75 text-light text-center py-2">
+                <span id="flavorPrice" class="d-block mb-1 fw-semibold">Price: ₹150</span>
+                <button id="addToCart" class="btn btn-sm btn-success fw-bold px-4">+ Add to Cart</button>
+            </div>
+        </div>
+</div>
+
+<!-- Statistics Counter -->
+<section class="text-center my-5 bg-black py-5">
+    <h2 class="text-warning">Our Achievements 🎉</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <h1 class="text-warning" id="scoops">0</h1>
+            <p>Scoops Served</p>
+        </div>
+        <div class="col-md-4">
+            <h1 class="text-warning" id="happyCustomers">0</h1>
+            <p>Happy Customers</p>
+        </div>
+        <div class="col-md-4">
+            <h1 class="text-warning" id="flavors">0</h1>
+            <p>Flavors Available</p>
+        </div>
+    </div>
+</section>
+
+ <!-- Testimonials -->
+ <h2 class="text-center mt-5 text-warning">What Our Customers Say</h2>
+ <div class="text-center">
+     <p>⭐ ⭐ ⭐ ⭐ ⭐ - "Absolutely love the flavors! Will order again." - <strong>Riya</strong></p>
+     <p>⭐ ⭐ ⭐ ⭐ ⭐ - "Best ice cream catering service for parties!" - <strong>Amit</strong></p>
+ </div>
+
+<script>
+document.getElementById("flavorSelect").addEventListener("change", function() {
+    document.getElementById("flavorImage").src = this.value;
+});
+
+
+
+
+
+function animateValue(id, start, end, duration) {
+    let obj = document.getElementById(id);
+    let range = end - start;
+    let current = start;
+    let increment = range / (duration / 50);
+    let timer = setInterval(() => {
+        current += increment;
+        obj.textContent = Math.floor(current);
+        if (current >= end) {
+            clearInterval(timer);
+            obj.textContent = end;
+        }
+    }, 50);
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    animateValue("scoops", 0, 15000, 2000);
+    animateValue("happyCustomers", 0, 12000, 2000);
+    animateValue("flavors", 0, 30, 2000);
+});
+
+// Update Add to Cart button
+$('#addToCart').attr('data-index', productId);
+</script>
+
+{% endblock %}

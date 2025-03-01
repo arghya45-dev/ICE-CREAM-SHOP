@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<style>
+    /* Background styling */
+body {
+    background: linear-gradient(135deg, #000428, #004e92);
+    background-attachment: fixed;
+}
+
+/* Glassmorphism effect */
+.card {
+    box-shadow: 0px 0px 20px rgba(0, 72, 255, 0.2);
+}
+
+/* Input fields */
+input {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: white !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+input::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    transition: all 0.3s ease-in-out;
+}
+.btn-primary:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+</style>
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card border-0 shadow-lg p-4" style="max-width: 400px; background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(15px); border-radius: 15px;">
+        <div class="text-center">
+            <i class="bi bi-person-circle display-1 text-primary"></i>
+            <h3 class="mt-2 text-light">Welcome Back</h3>
+            <p class="text-secondary">Sign in to continue</p>
+        </div>
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <form method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label class="form-label text-light">Username</label>
+                {{ form.username }}
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-light">Password</label>
+                {{ form.password }}
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 fw-bold">Login</button>
+        </form>
+
+        <div class="text-center mt-3">
+            <a href="#" class="text-primary">Forgot password?</a>
+            <p class="mt-2 text-light">Don't have an account? <a href="{% url 'register' %}" class="text-primary fw-bold">Sign Up</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

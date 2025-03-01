@@ -1,0 +1,568 @@
+{% extends 'base.html' %}
+{% block title %}Our Flavors | Ice Cream Shop{% endblock %}
+
+{% block body %}
+<div class="container text-center mt-4">
+    <h1 class="text-warning fw-bold">Explore Our Delicious Flavors 🍨</h1>
+    <p class="lead text-light">Indulge in our wide range of handcrafted ice cream flavors.</p>
+</div>
+
+<div class="row">
+    <!-- Vanilla -->
+    <div class="col-md-4 col-lg-3 mb-4">
+        <div class="card bg-dark text-light text-center" style="height: 350px;">
+            <img src="/static/vanilla.jpg" class="card-img-top mx-auto mt-2" alt="Vanilla Ice Cream" style="height: 120px; width: 120px; object-fit: cover;">
+            <div class="card-body">
+                <h6 class="card-title">Vanilla Delight</h6>
+                <p class="card-text small">Rich and creamy vanilla made with fresh ingredients.</p>
+                <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#vanillaModal">View</button>
+                <button class="btn btn-success add-to-cart" data-name="Vanilla Delight" data-price="150">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chocolate -->
+    <div class="col-md-4 col-lg-3 mb-4">
+        <div class="card bg-dark text-light text-center" style="height: 350px;">
+            <img src="/static/chocolate.jpg" class="card-img-top mx-auto mt-2" alt="Chocolate Ice Cream" style="height: 120px; width: 120px; object-fit: cover;">
+            <div class="card-body">
+                <h6 class="card-title">Chocolate Heaven</h6>
+                <p class="card-text small">A rich and decadent chocolate treat made with premium cocoa.</p>
+                <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#chocolateModal">View</button>
+                <button class="btn btn-success add-to-cart" data-name="Chocolate Heaven" data-price="180">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Strawberry -->
+    <div class="col-md-4 col-lg-3 mb-4">
+        <div class="card bg-dark text-light text-center" style="height: 350px;">
+            <img src="/static/strawberry.jpg" class="card-img-top mx-auto mt-2" alt="Strawberry Ice Cream" style="height: 120px; width: 120px; object-fit: cover;">
+            <div class="card-body">
+                <h6 class="card-title">Strawberry Bliss</h6>
+                <p class="card-text small">Sweet and fruity strawberry ice cream with real fruit chunks.</p>
+                <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#strawberryModal">View</button>
+                <button class="btn btn-success add-to-cart" data-name="Strawberry Bliss" data-price="170">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mango -->
+    <div class="col-md-4 col-lg-3 mb-4">
+        <div class="card bg-dark text-light text-center" style="height: 350px;">
+            <img src="/static/mango.jpeg" class="card-img-top mx-auto mt-2" alt="Mango Ice Cream" style="height: 120px; width: 120px; object-fit: cover;">
+            <div class="card-body">
+                <h6 class="card-title">Mango Madness</h6>
+                <p class="card-text small">Fresh and tropical mango ice cream bursting with flavor.</p>
+                <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#mangoModal">View</button>
+                <button class="btn btn-success add-to-cart" data-name="Mango Madness" data-price="160">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Butterscotch -->
+    <div class="col-md-4 col-lg-3 mb-4">
+        <div class="card bg-dark text-light text-center" style="height: 350px;">
+            <img src="/static/butterscotch.webp" class="card-img-top mx-auto mt-2" alt="Butterscotch Ice Cream" style="height: 120px; width: 120px; object-fit: cover;">
+            <div class="card-body">
+                <h6 class="card-title">Butterscotch Crunch</h6>
+                <p class="card-text small">Crunchy caramelized nuts blended into creamy butterscotch.</p>
+                <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#butterscotchModal">View</button>
+                <button class="btn btn-success add-to-cart" data-name="Butterscotch Crunch" data-price="180">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blueberry -->
+    <div class="col-md-4 col-lg-3 mb-4">
+        <div class="card bg-dark text-light text-center" style="height: 350px;">
+            <img src="/static/blueberry.jpg" class="card-img-top mx-auto mt-2" alt="Blueberry Ice Cream" style="height: 120px; width: 120px; object-fit: cover;">
+            <div class="card-body">
+                <h6 class="card-title">Blueberry Dream</h6>
+                <p class="card-text small">Creamy and tangy blueberry ice cream with a refreshing taste.</p>
+                <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#blueberryModal">View</button>
+                <button class="btn btn-success add-to-cart" data-name="Blueberry Dream" data-price="190">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mint Chocolate Chip -->
+    <div class="col-md-4 col-lg-3 mb-4">
+        <div class="card bg-dark text-light text-center" style="height: 350px;">
+            <img src="/static/Mint Chocolate Chip.webp" class="card-img-top mx-auto mt-2" alt="Blueberry Ice Cream" style="height: 120px; width: 120px; object-fit: cover;">
+            <div class="card-body">
+                <h6 class="card-title">Mint Chocolate Chip</h6>
+                <p class="card-text small">Make Mine A Mint Choc Chip Fun Ice Cream.</p>
+                <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#MintChocolateChipModal">View</button>
+                <button class="btn btn-success add-to-cart" data-name="Mint Chocolate Chip" data-price="180">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Butter Pecan -->
+    <div class="col-md-4 col-lg-3 mb-4">
+        <div class="card bg-dark text-light text-center" style="height: 350px;">
+            <img src="/static/Butter Pecan.webp" class="card-img-top mx-auto mt-2" alt="Blueberry Ice Cream" style="height: 120px; width: 120px; object-fit: cover;">
+            <div class="card-body">
+                <h6 class="card-title">Butter Pecan</h6>
+                <p class="card-text small">Taste the extraordinary.</p>
+                <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#ButterPecanModal">View</button>
+                <button class="btn btn-success add-to-cart" data-name="Butter Pecan" data-price="190">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Chocolate Chip Cookie Dough -->
+    <div class="col-md-4 col-lg-3 mb-4">
+        <div class="card bg-dark text-light text-center" style="height: 350px;">
+            <img src="/static/Chocolate Chip Cookie Dough.webp" class="card-img-top mx-auto mt-2" alt="Blueberry Ice Cream" style="height: 120px; width: 120px; object-fit: cover;">
+            <div class="card-body">
+                <h6 class="card-title">Chocolate Chip Cookie Dough</h6>
+                <p class="card-text small">The taste of your favorite cookie, now in every scoop.</p>
+                <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#ChocolateChipCookieDoughModal">View</button>
+                <button class="btn btn-success add-to-cart" data-name="Chocolate Chip Cookie Dough" data-price="200">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookies n' Cream -->
+    <div class="col-md-4 col-lg-3 mb-4">
+        <div class="card bg-dark text-light text-center" style="height: 350px;">
+            <img src="/static/Cookies n' Cream.webp" class="card-img-top mx-auto mt-2" alt="Blueberry Ice Cream" style="height: 120px; width: 120px; object-fit: cover;">
+            <div class="card-body">
+                <h6 class="card-title">Cookies n' Cream</h6>
+                <p class="card-text small">Happiness by the scoop.</p>
+                <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#CookiesModal">View</button>
+                <button class="btn btn-success add-to-cart" data-name="Cookies n' Cream" data-price="180">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Coffee -->
+    <div class="col-md-4 col-lg-3 mb-4">
+        <div class="card bg-dark text-light text-center" style="height: 350px;">
+            <img src="/static/Coffee.webp" class="card-img-top mx-auto mt-2" alt="Blueberry Ice Cream" style="height: 120px; width: 120px; object-fit: cover;">
+            <div class="card-body">
+                <h6 class="card-title">Coffee</h6>
+                <p class="card-text small">Where Coffee Meets Comfort.</p>
+                <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="CoffeeModal">View</button>
+                <button class="btn btn-success add-to-cart" data-name="Coffee" data-price="190">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Pistachio -->
+    <div class="col-md-4 col-lg-3 mb-4">
+        <div class="card bg-dark text-light text-center" style="height: 350px;">
+            <img src="/static/Pistachio.webp" class="card-img-top mx-auto mt-2" alt="Blueberry Ice Cream" style="height: 120px; width: 120px; object-fit: cover;">
+            <div class="card-body">
+                <h6 class="card-title">Pistachio</h6>
+                <p class="card-text small">Scoop up the good life.</p>
+                <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#PistachioModal">View</button>
+                <button class="btn btn-success add-to-cart" data-name="Pistachio" data-price="200">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Neapolitan -->
+    <div class="col-md-4 col-lg-3 mb-4">
+        <div class="card bg-dark text-light text-center" style="height: 350px;">
+            <img src="/static/Neapolitan.webp" class="card-img-top mx-auto mt-2" alt="Blueberry Ice Cream" style="height: 120px; width: 120px; object-fit: cover;">
+            <div class="card-body">
+                <h6 class="card-title">Neapolitan</h6>
+                <p class="card-text small">Taste the extraordinary.</p>
+                <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#NeapolitanModal">View</button>
+                <button class="btn btn-success add-to-cart" data-name="Neapolitan" data-price="210">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Salted Caramel -->
+    <div class="col-md-4 col-lg-3 mb-4">
+        <div class="card bg-dark text-light text-center" style="height: 350px;">
+            <img src="/static/Salted Caramel.webp" class="card-img-top mx-auto mt-2" alt="Blueberry Ice Cream" style="height: 120px; width: 120px; object-fit: cover;">
+            <div class="card-body">
+                <h6 class="card-title">Salted Caramel</h6>
+                <p class="card-text small">Indulge in Sweet & Salty Bliss.</p>
+                <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#SaltedCaramelModal">View</button>
+                <button class="btn btn-success add-to-cart" data-name="Salted Caramel" data-price="220">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- French Vanilla -->
+    <div class="col-md-4 col-lg-3 mb-4">
+        <div class="card bg-dark text-light text-center" style="height: 350px;">
+            <img src="/static/French Vanilla.webp" class="card-img-top mx-auto mt-2" alt="French Vanilla" style="height: 120px; width: 120px; object-fit: cover;">
+            <div class="card-body">
+                <h6 class="card-title">French Vanilla</h6>
+                <p class="card-text small">Where cravings meet satisfaction.</p>
+                <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#frenchvanillaModal">View</button>
+                <button class="btn btn-success add-to-cart" data-name="French Vanilla" data-price="190">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modals for each ice cream flavor -->
+<div class="modal fade" id="vanillaModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark text-light">
+            <div class="modal-header">
+                <h5 class="modal-title">Vanilla Delight 🍦</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>Made with the finest vanilla beans and creamy milk.</p>
+                <p><strong>Price: ₹150</strong></p>
+                <button class="btn btn-success add-to-cart" data-name="Vanilla Delight" data-price="150">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="chocolateModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark text-light">
+            <div class="modal-header">
+                <h5 class="modal-title">Chocolate Heaven 🍫</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>Made with premium Belgian cocoa for a rich and indulgent taste.</p>
+                <p><strong>Price: ₹180</strong></p>
+                <button class="btn btn-success add-to-cart" data-name="Chocolate Heaven" data-price="180">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="strawberryModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark text-light">
+            <div class="modal-header">
+                <h5 class="modal-title">Strawberry Bliss 🍓</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>Fresh strawberries blended into creamy ice cream.</p>
+                <p><strong>Price: ₹170</strong></p>
+                <button class="btn btn-success add-to-cart" data-name="Strawberry Bliss" data-price="170">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mangoModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark text-light">
+            <div class="modal-header">
+                <h5 class="modal-title">Mango Madness 🥭</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>Made with fresh Alphonso mangoes for a tropical taste.</p>
+                <p><strong>Price: ₹160</strong></p>
+                <button class="btn btn-success add-to-cart" data-name="Mango Madness" data-price="160">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="butterscotchModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark text-light">
+            <div class="modal-header">
+                <h5 class="modal-title">Butterscotch Crunch 🍯</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>Crispy caramelized nuts in rich butterscotch ice cream.</p>
+                <p><strong>Price: ₹180</strong></p>
+                <button class="btn btn-success add-to-cart" data-name="Butterscotch Crunch" data-price="180">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="blueberryModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark text-light">
+            <div class="modal-header">
+                <h5 class="modal-title">Blueberry Dream 🫐</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>Fresh blueberry puree mixed into creamy goodness.</p>
+                <p><strong>Price: ₹190</strong></p>
+                <button class="btn btn-success add-to-cart" data-name="Blueberry Dream" data-price="190">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Mint Chocolate Chip Modal -->
+<div class="modal fade" id="MintChocolateChipModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark text-light">
+            <div class="modal-header">
+                <h5 class="modal-title">Mint Chocolate Chip 🌿🍫</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>Refreshing mint ice cream loaded with chocolate chips.</p>
+                <p><strong>Price: ₹180</strong></p>
+                <button class="btn btn-success add-to-cart" data-name="Mint Chocolate Chip" data-price="180">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Butter Pecan Modal -->
+<div class="modal fade" id="ButterPecanModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark text-light">
+            <div class="modal-header">
+                <h5 class="modal-title">Butter Pecan 🥜</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>Rich, buttery ice cream with roasted pecans.</p>
+                <p><strong>Price: ₹190</strong></p>
+                <button class="btn btn-success add-to-cart" data-name="Butter Pecan" data-price="190">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Chocolate Chip Cookie Dough Modal -->
+<div class="modal fade" id="ChocolateChipCookieDoughModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark text-light">
+            <div class="modal-header">
+                <h5 class="modal-title">Chocolate Chip Cookie Dough 🍪</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>The taste of your favorite cookie, now in every scoop.</p>
+                <p><strong>Price: ₹200</strong></p>
+                <button class="btn btn-success add-to-cart" data-name="Chocolate Chip Cookie Dough" data-price="200">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Cookies n' Cream Modal -->
+<div class="modal fade" id="CookiesModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark text-light">
+            <div class="modal-header">
+                <h5 class="modal-title">Cookies n' Cream 🍪</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>Classic cookies blended with creamy vanilla ice cream.</p>
+                <p><strong>Price: ₹180</strong></p>
+                <button class="btn btn-success add-to-cart" data-name="Cookies n' Cream" data-price="180">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Coffee Modal -->
+<div class="modal fade" id="CoffeeModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark text-light">
+            <div class="modal-header">
+                <h5 class="modal-title">Coffee ☕</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>Bold and creamy coffee ice cream for caffeine lovers.</p>
+                <p><strong>Price: ₹190</strong></p>
+                <button class="btn btn-success add-to-cart" data-name="Coffee" data-price="190">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Pistachio Modal -->
+<div class="modal fade" id="PistachioModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark text-light">
+            <div class="modal-header">
+                <h5 class="modal-title">Pistachio 🌰</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>Smooth pistachio ice cream with nutty goodness.</p>
+                <p><strong>Price: ₹200</strong></p>
+                <button class="btn btn-success add-to-cart" data-name="Pistachio" data-price="200">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Neapolitan Modal -->
+<div class="modal fade" id="NeapolitanModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark text-light">
+            <div class="modal-header">
+                <h5 class="modal-title">Neapolitan 🍓🍫🍦</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>Classic combination of vanilla, chocolate, and strawberry.</p>
+                <p><strong>Price: ₹210</strong></p>
+                <button class="btn btn-success add-to-cart" data-name="Neapolitan" data-price="210">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Salted Caramel Modal -->
+<div class="modal fade" id="SaltedCaramelModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark text-light">
+            <div class="modal-header">
+                <h5 class="modal-title">Salted Caramel 🍯🧂</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>Rich caramel ice cream with a hint of sea salt.</p>
+                <p><strong>Price: ₹220</strong></p>
+                <button class="btn btn-success add-to-cart" data-name="Salted Caramel" data-price="220">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- French Vanilla Modal -->
+<div class="modal fade" id="frenchvanillaModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark text-light">
+            <div class="modal-header">
+                <h5 class="modal-title">French Vanilla 🇫🇷🍦</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>Rich and smooth vanilla with a French twist.</p>
+                <p><strong>Price: ₹190</strong></p>
+                <button class="btn btn-success add-to-cart" data-name="French Vanilla" data-price="190">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+{% comment %} js for add to cart  {% endcomment %}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        // Function to update the cart in localStorage
+        function saveCart() {
+            localStorage.setItem("cart", JSON.stringify(cart));
+        }
+
+        // Function to add item to the cart
+        function addToCart(name, price) {
+            let existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity += 1; // Increase quantity if item already in cart
+            } else {
+                cart.push({ name, price: parseFloat(price), quantity: 1 });
+            }
+            saveCart();
+            alert(`${name} added to cart!`);
+        }
+
+        // Attach event listeners to all "Add to Cart" buttons
+        document.querySelectorAll(".add-to-cart").forEach(button => {
+            button.addEventListener("click", function () {
+                let name = this.getAttribute("data-name");
+                let price = this.getAttribute("data-price");
+                addToCart(name, price);
+            });
+        });
+    });
+</script>
+
+
+
+
+
+{% endblock %}

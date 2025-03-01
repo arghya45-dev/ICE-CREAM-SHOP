@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container mt-4">
+    <h2>Checkout 🛒</h2>
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody id="checkout-items">
+            <!-- Checkout items will be dynamically inserted here -->
+        </tbody>
+    </table>
+
+    <h4 class="text-light">Grand Total: ₹<span id="checkout-grand-total">0</span></h4>
+
+    <form id="checkout-form">
+        <div class="mb-3">
+            <label class="form-label text-light">Full Name</label>
+            <input type="text" class="form-control" id="customer-name" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label text-light">Address</label>
+            <textarea class="form-control" id="customer-address" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label class="form-label text-light">Phone Number</label>
+            <input type="tel" class="form-control" id="customer-phone" required>
+        </div>
+        <button type="submit" class="btn btn-success">Place Order</button>
+    </form>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let checkoutTable = document.getElementById("checkout-items");
+    let grandTotal = 0;
+
+    function updateCheckoutDisplay() {
+        checkoutTable.innerHTML = "";
+        grandTotal = 0;
+
+        cart.forEach((item) => {
+            let itemTotal = item.price * item.quantity;
+            grandTotal += itemTotal;
+
+            checkoutTable.innerHTML += `
+                <tr>
+                    <td>${item.name}</td>
+                    <td>₹${item.price}</td>
+                    <td>${item.quantity}</td>
+                    <td>₹${itemTotal}</td>
+                </tr>
+            `;
+        });
+
+        document.getElementById("checkout-grand-total").innerText = grandTotal;
+    }
+
+    document.getElementById("checkout-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        let orderDetails = {
+            name: document.getElementById("customer-name").value,
+            address: document.getElementById("customer-address").value,
+            phone: document.getElementById("customer-phone").value,
+            items: cart,
+            total: grandTotal
+        };
+
+        console.log("Order Placed:", orderDetails); // For testing
+        localStorage.removeItem("cart"); // Clear cart after checkout
+        alert("Order placed successfully!");
+        window.location.href = "{% url 'home' %}"; // Redirect to home after checkout
+    });
+
+    updateCheckoutDisplay();
+});
+</script>
+
+{% endblock %}

@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container mt-4">
+    <h2>Your Cart 🛒</h2>
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="cart-items">
+            <!-- Cart items will be dynamically inserted here -->
+        </tbody>
+    </table>
+
+    <h4 class="text-light">Grand Total: ₹<span id="grand-total">0</span></h4>
+    <button class="btn btn-danger" onclick="clearCart()">Clear Cart</button>
+    <a href="{% url 'checkout' %}" class="btn btn-primary">Proceed to Checkout</a>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let cartTable = document.getElementById("cart-items");
+    let grandTotal = 0;
+
+    function updateCartDisplay() {
+        cartTable.innerHTML = ""; // Clear old data
+        grandTotal = 0;
+
+        cart.forEach((item, index) => {
+            let itemTotal = item.price * item.quantity;
+            grandTotal += itemTotal;
+
+            cartTable.innerHTML += `
+                <tr>
+                    <td>${item.name}</td>
+                    <td>₹${item.price}</td>
+                    <td>
+                        <button class="btn btn-sm btn-secondary" onclick="updateQuantity(${index}, -1)">-</button>
+                        ${item.quantity}
+                        <button class="btn btn-sm btn-secondary" onclick="updateQuantity(${index}, 1)">+</button>
+                    </td>
+                    <td>₹${itemTotal}</td>
+                    <td>
+                        <button class="btn btn-danger btn-sm" onclick="removeItem(${index})">Remove</button>
+                    </td>
+                </tr>
+            `;
+        });
+
+        document.getElementById("grand-total").innerText = grandTotal;
+    }
+
+    // Function to update quantity
+    window.updateQuantity = function (index, change) {
+        if (cart[index].quantity + change > 0) {
+            cart[index].quantity += change;
+        } else {
+            cart.splice(index, 1); // Remove item if quantity is zero
+        }
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateCartDisplay();
+    };
+
+    // Function to remove an item
+    window.removeItem = function (index) {
+        cart.splice(index, 1);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateCartDisplay();
+    };
+
+    // Function to clear the cart
+    window.clearCart = function () {
+        localStorage.removeItem("cart");
+        cart = [];
+        updateCartDisplay();
+    };
+
+    updateCartDisplay(); // Initial display
+});
+</script>
+
+{% endblock %}
